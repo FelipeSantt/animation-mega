@@ -8,18 +8,19 @@
 </head>
 <body>
     <div id="mega" class="start"></div>
-    <!-- <button id="runRight">Pra Frente</button>
-    <button id="stopRun">Parar</button> -->
+    <div id="fase"></div>
+    <button id="runRight">Correr</button>
+    <button id="stopRun">Reiniciar</button>
 
     <script>
-        // runRight.onclick = () => {
-        //     mega.classList.remove('start');
-        //     mega.classList.add('run');
-        // }
-        // stopRun.onclick = () => {
-        //     mega.classList.remove('run');
-        //     mega.classList.add('start');
-        // }
+        runRight.onclick = () => {
+            mega.classList.remove('start');
+            mega.classList.add('run');
+        }
+        stopRun.onclick = () => {
+            mega.classList.remove('run');
+            mega.classList.add('start');
+        }
         
         addEventListener('keydown', (e) => {
             if(e.key === 'ArrowRight') {
