@@ -7,25 +7,46 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div id="mega" class="start"></div>
-    <div id="fase"></div>
-    <button id="runRight">Correr</button>
-    <button id="stopRun">Reiniciar</button>
+    <main>
+        <div id="mega" class=""></div>
+        <div id="" class="fundo"></div>
+    </main>
+    <section>
+        <!-- <img src="./img/controle nitendo.png" alt=""> -->
+        <div class="buttons">
+            <button id="stopRun"><img src="./img/botao.jpg" alt=""></button>
+            <button id="runLeft"><img src="./img/seta-esquerda.png" alt=""></button>
+            <button id="runRight"><img src="./img/seta-direita.png" alt=""></button>
+            <button id="jump"><img src="./img/botao.jpg" alt=""></button>
+        </div>
+    </section>
+
 
     <script>
-        
+
         runRight.onclick = () => {
-            mega.classList.remove('start');
+            mega.classList.remove('start', 'inverter', 'jump');
             mega.classList.add('run');
         }
         stopRun.onclick = () => {
-            mega.classList.remove('run');
+            mega.classList.remove('run' , 'inverter','jump');
             mega.classList.add('start');
+        }
+        runLeft.onclick = () => {
+            mega.classList.remove('start', 'run','jump');
+            mega.classList.add('inverter');
+        }
+        jump.onclick = () => {
+            mega.classList.add('jump');
+            setTimeout(() => {
+                    mega.classList.remove('jump')
+                }, 990);
+
         }
         
         addEventListener('keydown', (e) => {
             if(e.key === 'ArrowRight') {
-                mega.classList.remove('start');
+                mega.classList.remove('start','inverter','jump','jump-left');
                 mega.classList.add('run');
                 return;
             }
@@ -38,14 +59,38 @@
 
         addEventListener('keydown', (e) => {
             if(e.key === 'ArrowLeft') {
-                mega.classList.remove('start');
-                mega.classList.add('run');
+                mega.classList.remove('start', 'inverter', 'jump','jump-left');
+                mega.classList.add('inverter');
                 return;
             }
+        });
+        addEventListener('keydown', (e) => {
             if(e.key === ' ') {
-                mega.classList.remove('run');
+                mega.classList.remove('inverter','jump','jump-left', 'stop');
                 mega.classList.add('start');
                 return;
+                setTimeout(() => {
+                    mega.classList.remove(' ')
+                }, 500);
+            }
+        });
+        addEventListener('keydown', (e) => {
+            if(e.key === 'ArrowUp') {
+                mega.classList.add('jump');
+                setTimeout(() => {
+                    mega.classList.remove('jump');
+                }, 999);
+                return;           
+            }
+            else {
+                if(e.key === 'ArrowUp') {
+                mega.classList.remove('inverter');
+                mega.classList.add('jumpLeft');
+                setTimeout(() => {
+                    mega.classList.remove('jump-left');
+                }, 999);
+                return;
+            }
             }
         });
     </script>
