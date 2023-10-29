@@ -532,7 +532,7 @@ button {
         width: 5px;
         align-items: center;
         justify-content:flex-start;
-        margin-left: -180px;
+        margin-left: -160px;
     }
 
     button img {
